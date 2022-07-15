@@ -11,6 +11,9 @@ public class RollDice : MonoBehaviour
 
     public GameObject diceDisplay;
 
+    public GameObject rollButton;
+    public GameObject attackButton;
+
     private void Awake()
     {
         diceSidesHolder = GameObject.Find("Dice holder");
@@ -19,11 +22,7 @@ public class RollDice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //for(int i=0;i < diceSidesHolder.transform.childCount;i++)
-        //{
-        //    diceSides[i] = diceSidesHolder.transform.GetChild(i).gameObject;
-        //}
-        //diceDisplay = transform.GetChild(0).gameObject;
+        
     }
 
     // Update is called once per frame
@@ -32,9 +31,11 @@ public class RollDice : MonoBehaviour
         
     }
 
-    public void Attack()
+    public void Roll()
     {
         StartCoroutine(RollTheDice());
+        rollButton.SetActive(false);
+        attackButton.SetActive(true);
     }
 
     public IEnumerator RollTheDice()
@@ -57,4 +58,6 @@ public class RollDice : MonoBehaviour
         finalSide = randomDiceSide + 1;
         Debug.Log(finalSide);
     }
+
+  
 }
