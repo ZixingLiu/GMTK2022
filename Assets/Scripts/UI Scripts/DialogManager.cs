@@ -50,5 +50,13 @@ public class DialogManager : MonoBehaviour
         Debug.Log("End og the conversation");
         SceneManager.LoadScene(MainScene);
     }
+    public void TrunOnTextTrigger()
+    {
+        dialogBar.SetActive(true);
+        nameBar.SetActive(true);
+        continueButton.SetActive(true); 
+        triggerButton.SetActive(false);
+        
+    }
 }
 
