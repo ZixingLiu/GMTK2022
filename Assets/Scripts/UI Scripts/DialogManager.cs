@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI dialogText;
 
     public GameObject dialogBar;
+    public GameObject nameBar; 
     public GameObject continueButton;
     public GameObject triggerButton;
 
