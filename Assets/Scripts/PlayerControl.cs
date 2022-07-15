@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -19,10 +21,24 @@ public class PlayerControl : MonoBehaviour
 
     TrajectoryLine tl;
 
+    public bool canDrag = true;
+
+    [Header("health")]
+    public float maxHealth = 100;
+    float currentHealth;
+    public Image healthBar;
+    public TextMeshProUGUI healthText;
+    float lerpSpeed;
+
+    public Color fullHealthColor;
+    public Color noHealthColor;
+
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
+        currentHealth = maxHealth;
+
     }
 
     private void Awake()
@@ -34,24 +50,84 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //debug
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            currentHealth += 10;
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            currentHealth -= 10;
+        }
+
+        // health
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Debug.Log("die");
+        }
+        healthText.text = currentHealth + "/" + maxHealth;
+
+        lerpSpeed = 3f * Time.deltaTime;
+
+        HealthBarFiller();
+        ColorChanger();
+
+        //movement
+        if (rb.velocity.magnitude <= 2f)
+        {
+            canDrag = true;
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            canDrag = false;
+        }
+
         lastVelocity = rb.velocity;
 
-        if(Input.GetMouseButtonDown(0))
+    }
+    void HealthBarFiller()
+    {
+        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, lerpSpeed);
+    }
+
+    void ColorChanger()
+    {
+        Color healthColor = Color.Lerp(noHealthColor, fullHealthColor, (currentHealth / maxHealth));
+
+        healthBar.color = healthColor;
+    }
+
+    private void OnMouseDown()
+    {
+        if(canDrag)
         {
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z = 15f;
-            Debug.Log(startPoint);
+            //Debug.Log(startPoint);
         }
 
-        if(Input.GetMouseButton(0))
+    }
+    private void OnMouseDrag()
+    {
+        if(canDrag)
         {
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15f;
 
             tl.RenderLine(startPoint, currentPoint);
         }
-
-        if(Input.GetMouseButtonUp(0))
+        
+    }
+    private void OnMouseUp()
+    {
+        if(canDrag)
         {
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             endPoint.z = 15f;
@@ -62,7 +138,10 @@ public class PlayerControl : MonoBehaviour
             rb.AddForce(force * power, ForceMode2D.Impulse);
             tl.EndLine();
         }
+        
+
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
