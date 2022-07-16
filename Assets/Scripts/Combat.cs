@@ -25,6 +25,8 @@ public class Combat : MonoBehaviour
     public AudioClip monsterHitSound;
      
 
+    Animator fightAnimator;
+
     private void Awake()
     {
         //rd = FindObjectOfType<RollDice>();
@@ -32,6 +34,8 @@ public class Combat : MonoBehaviour
         dotween = GetComponent<DoTweenManager>();
         canvas = GameObject.Find("Canvas");
         rewardInScene = GameObject.Find("Reward in Scene");
+
+        fightAnimator = GameObject.Find("fight animation").GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -92,6 +96,7 @@ public class Combat : MonoBehaviour
     {
         if (collision.tag == "Monster")
         {
+            fightAnimator.SetTrigger("fight");
             targetMonster = collision.gameObject;
             //stop movement
             playerControl.rb.velocity = playerControl.rb.velocity * 0.05f;

@@ -45,7 +45,11 @@ public class PlayerControl : MonoBehaviour
     public AudioClip wallHitSound;
     //public AudioClip diceMovement; 
 
-    public string LoadFailScene; 
+    //distance boss
+    TextMeshProUGUI distanceText;
+
+    public string LoadFailScene;
+    GameObject boss;
 
     // Start is called before the first frame update
     void Start()
@@ -60,11 +64,18 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         tl = GetComponent<TrajectoryLine>();
         shieldHolder = GameObject.Find("shield holder");
+        distanceText = GameObject.Find("distance text").GetComponent<TextMeshProUGUI>();
+        boss = FindObjectOfType<Boss>().gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //calculate distance
+        int distance = Mathf.Abs((int)(boss.transform.position - transform.position).magnitude);
+        distanceText.text = "Boss Distance: " + distance.ToString() + "M";
+
         //lock rotation
         transform.rotation = Quaternion.identity;
 
