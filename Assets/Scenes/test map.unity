@@ -831,13 +831,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2069419093}
   - component: {fileID: 2069419092}
-  - component: {fileID: 2069419094}
-  - component: {fileID: 2069419097}
-  - component: {fileID: 2069419096}
   - component: {fileID: 2069419091}
   - component: {fileID: 2069419090}
   - component: {fileID: 2069419095}
-  - component: {fileID: 2069419098}
+  - component: {fileID: 2069419096}
+  - component: {fileID: 2069419097}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -959,28 +957,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2069419094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069419089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f58565942d5e94faa862cf26af441c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 2
-  rb: {fileID: 0}
-  minPower: {x: -5, y: -5}
-  maxPower: {x: 5, y: 5}
-  canDrag: 1
-  maxHealth: 30
-  healthBar: {fileID: 0}
-  healthText: {fileID: 0}
-  fullHealthColor: {r: 0.749472, g: 1, b: 0.3339622, a: 1}
-  noHealthColor: {r: 1, g: 0.35283017, b: 0.35283017, a: 1}
 --- !u!120 &2069419095
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1096,10 +1072,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2069419089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e48ce30e75e37448bf5fa474f521115, type: 3}
+  m_Script: {fileID: 11500000, guid: 94964d117ccbc9c4c962697ae0bfca57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
+  power: 2
+  rb: {fileID: 0}
+  minPower: {x: -5, y: -5}
+  maxPower: {x: 5, y: 5}
+  canDrag: 1
 --- !u!114 &2069419097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,24 +1089,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2069419089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8eb3954a02db845ad3be1879101371, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e48ce30e75e37448bf5fa474f521115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatCnavas: {fileID: 0}
-  rd: {fileID: 0}
---- !u!114 &2069419098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069419089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d7188944f47b04d99a3afef2469c65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPos: {x: 0, y: 0, z: 0}
-  duration: 1
-  moveEase: 30
-  dotweenType: 1
+  lr: {fileID: 0}

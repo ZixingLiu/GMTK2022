@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
+        if(player == null)
         player = FindObjectOfType<PlayerControl>().gameObject;
     }
 
