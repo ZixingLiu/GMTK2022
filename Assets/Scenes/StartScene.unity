@@ -792,6 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound: {fileID: 8300000, guid: 47833cf12fbe4c745a414bfb5567e4bc, type: 3}
   hitSound: {fileID: 0}
+  diceRoll: {fileID: 0}
 --- !u!4 &479010211
 Transform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement; 
 
 public class PlayerControl : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class PlayerControl : MonoBehaviour
     public int shieldCount;
     public GameObject shieldHolder;
     public GameObject shieldIcon;
+
+    AudioSource audioSource;
+    public AudioClip stretchSound;
+
+    public string LoadFailScene; 
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +84,7 @@ public class PlayerControl : MonoBehaviour
             currentHealth = 0;
             Debug.Log("die");
             //Fail Scene
+            SceneManager.LoadScene(LoadFailScene);
         }
         healthText.text = currentHealth + "/" + maxHealth;
 
@@ -116,7 +123,8 @@ public class PlayerControl : MonoBehaviour
     {
         if(canDrag)
         {
-            
+            GetComponent<AudioSource>().clip = stretchSound;
+            GetComponent<AudioSource>().Play();
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z = 15f;
             //Debug.Log(startPoint);
@@ -127,7 +135,6 @@ public class PlayerControl : MonoBehaviour
     {
         if(canDrag)
         {
-            //¿≠≥∂“Ù–ß
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15f;
 
@@ -148,6 +155,8 @@ public class PlayerControl : MonoBehaviour
 
             rb.AddForce(force * power, ForceMode2D.Impulse);
             tl.EndLine();
+            //GetComponent<AudioSource>().clip = stretchSound;
+            GetComponent<AudioSource>().Stop();
         }
         
 

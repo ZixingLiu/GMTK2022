@@ -8,6 +8,7 @@ public class BSF : MonoBehaviour
 
     public AudioClip buttonSound;
     public AudioClip hitSound;
+    public AudioClip diceRoll; 
 
     void Start()
     {
@@ -22,6 +23,11 @@ public class BSF : MonoBehaviour
     public void HitSoundPlay()
     {
         GetComponent<AudioSource>().clip = hitSound;
+        GetComponent<AudioSource>().Play();
+    }
+    public void RollDiceSound()
+    {
+        GetComponent<AudioSource>().clip = diceRoll;
         GetComponent<AudioSource>().Play();
     }
 }

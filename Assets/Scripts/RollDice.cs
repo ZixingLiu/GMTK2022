@@ -15,6 +15,9 @@ public class RollDice : MonoBehaviour
     public GameObject attackButton;
     Combat combat;
 
+    AudioSource audioSource;
+    public AudioClip diceRoll;
+
 
     private void Awake()
     {
@@ -37,6 +40,8 @@ public class RollDice : MonoBehaviour
     public void Roll()
     {
         // àâàâÉù Ò¡÷»×Ó
+        GetComponent<AudioSource>().clip = diceRoll;
+        GetComponent<AudioSource>().Play();
         StartCoroutine(RollTheDice());
         rollButton.SetActive(false);
         attackButton.SetActive(true);
