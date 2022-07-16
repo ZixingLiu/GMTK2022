@@ -112,6 +112,7 @@ public class PlayerControl : MonoBehaviour
     {
         if(canDrag)
         {
+            
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z = 15f;
             //Debug.Log(startPoint);
@@ -122,6 +123,7 @@ public class PlayerControl : MonoBehaviour
     {
         if(canDrag)
         {
+            //¿≠≥∂“Ù–ß
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15f;
 
@@ -133,6 +135,7 @@ public class PlayerControl : MonoBehaviour
     {
         if(canDrag)
         {
+            //roll dice sound
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             endPoint.z = 15f;
 
@@ -149,6 +152,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //hit sound
         float speed = lastVelocity.magnitude;
         Vector3 direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
         rb.velocity = direction * Mathf.Max(speed, 0f);

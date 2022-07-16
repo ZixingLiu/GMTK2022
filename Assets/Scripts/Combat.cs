@@ -50,6 +50,7 @@ public class Combat : MonoBehaviour
 
     public IEnumerator AttackAnim()
     {
+        //hit monster sound
         dotween.targetPos = targetMonster.transform.position;
         dotween.PlayAnimatetion();
 

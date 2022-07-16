@@ -36,6 +36,7 @@ public class RollDice : MonoBehaviour
 
     public void Roll()
     {
+        // ртртЩљ вЁїЛзг
         StartCoroutine(RollTheDice());
         rollButton.SetActive(false);
         attackButton.SetActive(true);
