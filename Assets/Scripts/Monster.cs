@@ -32,7 +32,7 @@ public class Monster : MonoBehaviour
         if(currentHealth <= 0)
         {
             //end fight
-
+            rewardCanvas.SetActive(true);
             //open reward
 
         }

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DiceSide : MonoBehaviour
+public class DiceSide : MonoBehaviour, IDropHandler
 {
 
     public int damage;
@@ -17,5 +18,17 @@ public class DiceSide : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<Reward>() != null)
+        {
+            Reward reward = eventData.pointerDrag.GetComponent<Reward>();
+
+            eventData.pointerDrag.transform.SetParent(this.transform);
+            eventData.pointerDrag.transform.position = transform.position;
+            reward.moveBack = false;
+            reward.canInteract = false;
+        }
     }
 }
