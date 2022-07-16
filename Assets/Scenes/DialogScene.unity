@@ -318,7 +318,7 @@ MonoBehaviour:
   nameBar: {fileID: 1152018069}
   continueButton: {fileID: 1539632285}
   triggerButton: {fileID: 1213066128}
-  MainScene: GameScene
+  MainScene: test map
 --- !u!4 &271481563
 Transform:
   m_ObjectHideFlags: 0
