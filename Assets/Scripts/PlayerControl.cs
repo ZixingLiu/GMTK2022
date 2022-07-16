@@ -42,6 +42,7 @@ public class PlayerControl : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip stretchSound;
+    public AudioClip wallHitSound;
     //public AudioClip diceMovement; 
 
     public string LoadFailScene; 
@@ -167,6 +168,8 @@ public class PlayerControl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //hit sound
+        GetComponent<AudioSource>().clip = wallHitSound;
+        GetComponent<AudioSource>().Play();
         float speed = lastVelocity.magnitude;
         Vector3 direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
         rb.velocity = direction * Mathf.Max(speed, 0f);

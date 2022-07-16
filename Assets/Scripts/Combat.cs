@@ -22,7 +22,8 @@ public class Combat : MonoBehaviour
     GameObject rewardInScene;
 
     AudioSource audiosource;
-    public AudioClip monsterHitSound; 
+    public AudioClip monsterHitSound;
+     
 
     private void Awake()
     {
