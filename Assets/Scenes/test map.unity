@@ -9863,7 +9863,7 @@ MonoBehaviour:
   diceDisplay: {fileID: 1397250345}
   rollButton: {fileID: 1244900490}
   attackButton: {fileID: 859699510}
-  diceRoll: {fileID: 0}
+  diceRoll: {fileID: 8300000, guid: 582bed1c44548ec45a5b927c29f567ca, type: 3}
 --- !u!224 &539023768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9895,9 +9895,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 582bed1c44548ec45a5b927c29f567ca, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -18974,8 +18974,9 @@ MonoBehaviour:
   shieldCount: 0
   shieldHolder: {fileID: 861230827}
   shieldIcon: {fileID: 6062935880812154624, guid: d8a66f093e96cf24eb3dfecb3b45af61, type: 3}
-  stretchSound: {fileID: 0}
-  LoadFailScene: 
+  stretchSound: {fileID: 8300000, guid: bf770d384b578614c80d7b5f49a5faa0, type: 3}
+  diceMovement: {fileID: 8300000, guid: 6ef49f96c7ea2914badd7947d28e4a9f, type: 3}
+  LoadFailScene: FailScene
 --- !u!212 &1015696811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19038,9 +19039,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: bf770d384b578614c80d7b5f49a5faa0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
