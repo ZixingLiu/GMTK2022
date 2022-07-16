@@ -9,7 +9,7 @@ public class HoldOnLoad : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         GameObject[] objs = GameObject.FindGameObjectsWithTag("StartAudio");
-        if (objs.Length > 1 || scene.name == "GameScene")
+        if (objs.Length > 1 || scene.name == "GameScene" || scene.name == "test map")
         {
             Destroy(this.gameObject);
         }
@@ -26,7 +26,7 @@ public class HoldOnLoad : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         GameObject[] objs = GameObject.FindGameObjectsWithTag("StartAudio");
-        if (objs.Length > 1 || scene.name == "GameScene")
+        if (objs.Length > 1 || scene.name == "GameScene"||scene.name == "test map")
         {
             Destroy(this.gameObject);
         }
