@@ -11,6 +11,7 @@ public class DiceSide : MonoBehaviour, IDropHandler
 
     Combat combat;
 
+    bool canAdd = true;
     private void Awake()
     {
         combat = FindObjectOfType<Combat>();
@@ -28,9 +29,9 @@ public class DiceSide : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        if(transform.childCount <=4)
+        if(transform.childCount < 4 )
         {
-            if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<Reward>() != null)
+            if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<Reward>() != null && canAdd)
             {
                 Reward reward = eventData.pointerDrag.GetComponent<Reward>();
 
@@ -51,6 +52,7 @@ public class DiceSide : MonoBehaviour, IDropHandler
                         Destroy(transform.GetChild(0).gameObject);
                     }
                     damage = 10;
+                    canAdd = false;
                 }
                 else if(reward.currentRewardType == Reward.rewardType.shieldSpecial)
                 {
@@ -59,6 +61,7 @@ public class DiceSide : MonoBehaviour, IDropHandler
                         Destroy(transform.GetChild(0).gameObject);
                     }
                     shield = 10;
+                    canAdd=false;
                 }
 
                 eventData.pointerDrag.transform.SetParent(this.transform);

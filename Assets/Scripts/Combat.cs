@@ -48,6 +48,10 @@ public class Combat : MonoBehaviour
     void Update()
     {
         playerControl.shieldCount = playerShield;
+        if(targetMonster == null)
+        {
+            playerShield = 0;
+        }
     }
 
     public void ClickAttacck()

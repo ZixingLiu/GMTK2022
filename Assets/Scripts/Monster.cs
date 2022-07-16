@@ -94,6 +94,7 @@ public class Monster : MonoBehaviour
             rewardCanvas.transform.SetSiblingIndex(1);
             rewardCanvas.transform.position = rewardInScene.transform.position;
 
+            
 
             startFading = true;
             if (sprite.color.a > 0)
