@@ -42,7 +42,7 @@ public class PlayerControl : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip stretchSound;
-    public AudioClip diceMovement; 
+    //public AudioClip diceMovement; 
 
     public string LoadFailScene; 
 
@@ -147,7 +147,6 @@ public class PlayerControl : MonoBehaviour
     {
         if(canDrag)
         {
-            //roll dice sound
             
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             endPoint.z = 15f;

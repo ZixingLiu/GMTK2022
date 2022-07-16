@@ -13,6 +13,9 @@ public class PlayerChangeSrpite : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
+
+    //AudioSource audioSource;
+    //public AudioClip diceMovementSound; 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +42,8 @@ public class PlayerChangeSrpite : MonoBehaviour
             canChangeSprite = false;
             StopCoroutine(ChangeSprite());
             spriteRenderer.sprite = normalSprite;
+            //GetComponent<AudioSource>().clip = diceMovementSound; 
+            //GetComponent<AudioSource>().Play();
         }
         
     }

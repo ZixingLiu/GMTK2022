@@ -21,6 +21,9 @@ public class Combat : MonoBehaviour
     GameObject canvas;
     GameObject rewardInScene;
 
+    AudioSource audiosource;
+    public AudioClip monsterHitSound; 
+
     private void Awake()
     {
         //rd = FindObjectOfType<RollDice>();
@@ -51,6 +54,8 @@ public class Combat : MonoBehaviour
     public IEnumerator AttackAnim()
     {
         //hit monster sound
+        GetComponent<AudioSource>().clip = monsterHitSound;
+        GetComponent<AudioSource>().Play();
         dotween.targetPos = targetMonster.transform.position;
         dotween.PlayAnimatetion();
 
