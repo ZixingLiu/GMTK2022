@@ -39,11 +39,11 @@ public class DiceSide : MonoBehaviour, IDropHandler
 
             if(reward.currentRewardType == Reward.rewardType.attackReward)
             {
-                combat.playerDamage++;
+                damage++;
             }
             else if(reward.currentRewardType == Reward.rewardType.shieldReward)
             {
-                combat.playerShield++;
+                shield++;
             }
         }
     }

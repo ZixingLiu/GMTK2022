@@ -34,6 +34,11 @@ public class PlayerControl : MonoBehaviour
     public Color fullHealthColor;
     public Color noHealthColor;
 
+    //shield
+    public int shieldCount;
+    public GameObject shieldHolder;
+    public GameObject shieldIcon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,12 +51,18 @@ public class PlayerControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tl = GetComponent<TrajectoryLine>();
+        shieldHolder = GameObject.Find("shield holder");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //shield manage
+        if (shieldHolder.transform.childCount < shieldCount)
+            Instantiate(shieldIcon, shieldHolder.transform);
+
+        if (shieldHolder.transform.childCount > shieldCount)
+            Destroy(shieldHolder.transform.GetChild(0).gameObject);
 
         // health
 

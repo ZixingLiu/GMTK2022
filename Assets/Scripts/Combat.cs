@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Combat : MonoBehaviour
     PlayerControl playerControl;
     DoTweenManager dotween;
     GameObject targetMonster;
+
+    
 
     private void Awake()
     {
@@ -31,12 +34,13 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        playerControl.shieldCount = playerShield;
     }
 
     public void ClickAttacck()
     {
         StartCoroutine(AttackAnim());
+        rd.attackButton.GetComponent<Button>().interactable = false;
     }
 
     public IEnumerator AttackAnim()
@@ -47,12 +51,20 @@ public class Combat : MonoBehaviour
         Monster monster = targetMonster.GetComponent<Monster>();
         monster.currentHealth -= playerDamage;
         
-        monster.attack();
+        if(playerShield <=0)
+        {
+            monster.attack();
+        }
+        else
+        {
+            playerShield--;
+        }
 
 
         yield return new WaitForSeconds(1f);
 
         rd.rollButton.SetActive(true);
+        rd.attackButton.GetComponent<Button>().interactable = true;
         rd.attackButton.SetActive(false);
 
     }
@@ -78,7 +90,7 @@ public class Combat : MonoBehaviour
             combatCnavas.SetActive(true);
             rd.rollButton.SetActive(true);
             rd.attackButton.SetActive(false);
-            Debug.Log("enter combat");
+            //Debug.Log("enter combat");
 
         }
     }

@@ -39,10 +39,12 @@ public class RollDice : MonoBehaviour
         StartCoroutine(RollTheDice());
         rollButton.SetActive(false);
         attackButton.SetActive(true);
+        attackButton.GetComponent<Button>().interactable = false;
     }
 
     public IEnumerator RollTheDice()
     {
+
         int randomDiceSide = 0;
 
         int finalSide = 0;
@@ -62,9 +64,14 @@ public class RollDice : MonoBehaviour
         }
 
         combat.playerDamage = diceSides[randomDiceSide].GetComponent<DiceSide>().damage;
+        combat.playerShield += diceSides[randomDiceSide].GetComponent<DiceSide>().shield;
         finalSide = randomDiceSide + 1;
-        Debug.Log(finalSide);
+        //Debug.Log(finalSide);
+        attackButton.GetComponent<Button>().interactable = true;
+
+
+
     }
 
-  
+
 }

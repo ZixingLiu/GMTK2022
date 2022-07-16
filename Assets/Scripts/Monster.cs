@@ -15,7 +15,7 @@ public class Monster : MonoBehaviour
 
     public GameObject rewardCanvas;
     public GameObject combatCnavas;
-    GameObject canvas;
+    public GameObject canvas;
 
     [Header("health")]
     public float maxHealth = 100;
@@ -26,11 +26,20 @@ public class Monster : MonoBehaviour
 
     public Color fullHealthColor;
     public Color noHealthColor;
+
+    bool startFading = false;
+    float fadeTime = 2f;
+
+    GameObject rewardInScene;
+
+    SpriteRenderer sprite;
     private void Awake()
     {
         Player = FindObjectOfType<PlayerControl>().gameObject;
         doTween = GetComponent<DoTweenManager>();
         canvas = GameObject.Find("Canvas");
+        sprite = GetComponent<SpriteRenderer>();
+        rewardInScene = GameObject.Find("Reward in Scene");
     }
 
     // Start is called before the first frame update
@@ -61,7 +70,7 @@ public class Monster : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            Debug.Log("die");
+            //Debug.Log("die");
         }
         healthText.text = currentHealth + "/" + maxHealth;
 
@@ -70,13 +79,37 @@ public class Monster : MonoBehaviour
         HealthBarFiller();
         ColorChanger();
 
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (currentHealth <= 0)
         {
             //open reward
             combatCnavas.SetActive(false);
             rewardCanvas.SetActive(true);
             rewardCanvas.transform.SetParent(canvas.transform);
+            rewardCanvas.transform.SetSiblingIndex(1);
+            rewardCanvas.transform.position = rewardInScene.transform.position;
 
+
+            startFading = true;
+            if (sprite.color.a > 0)
+            {
+                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - fadeTime/60);
+            }
+
+        }
+
+
+        if (startFading)
+        {
+            fadeTime -= Time.deltaTime;
+        }
+
+        if (fadeTime < 0)
+        {
             Destroy(this.gameObject);
         }
     }
@@ -103,6 +136,7 @@ public class Monster : MonoBehaviour
         //GameObject player = Player;
         //doTween.targetPos = player.transform.position;
         //doTween.PlayAnimatetion();
+        
 
         Player.GetComponent<PlayerControl>().currentHealth -= damage;
     }

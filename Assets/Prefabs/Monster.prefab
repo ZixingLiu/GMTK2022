@@ -306,12 +306,13 @@ MonoBehaviour:
   doTween: {fileID: 0}
   rewardCanvas: {fileID: 645158091}
   combatCnavas: {fileID: 0}
-  maxHealth: 10
+  canvas: {fileID: 0}
+  maxHealth: 2
   currentHealth: 0
   healthBar: {fileID: 4307430694839157552}
   healthText: {fileID: 5056810672816967303}
   fullHealthColor: {r: 1, g: 0.4318131, b: 0.390566, a: 1}
-  noHealthColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  noHealthColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
 --- !u!61 &7655261631958505641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -390,7 +391,7 @@ GameObject:
   - component: {fileID: 360153738747594665}
   - component: {fileID: 3781290952846838000}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: monster Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -755,19 +756,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3003141722445473796, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3003141722445473796, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3003141722445473796, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 227.505
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3003141722445473796, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -82.595
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3240557759707256264, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_Name
@@ -775,7 +776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3240557759707256264, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3240557759707256271, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_Pivot.x
@@ -843,11 +844,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3240557759707256271, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.02948
+      value: -5.258
       objectReference: {fileID: 0}
     - target: {fileID: 3240557759707256271, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.37628174
+      value: -0.357
       objectReference: {fileID: 0}
     - target: {fileID: 3240557759707256271, guid: f317ed80937983843a0cb998d4b3b261, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
