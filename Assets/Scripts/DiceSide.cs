@@ -34,10 +34,7 @@ public class DiceSide : MonoBehaviour, IDropHandler
             {
                 Reward reward = eventData.pointerDrag.GetComponent<Reward>();
 
-                eventData.pointerDrag.transform.SetParent(this.transform);
-                eventData.pointerDrag.transform.position = transform.position;
-                reward.moveBack = false;
-                reward.canInteract = false;
+                
 
                 if (reward.currentRewardType == Reward.rewardType.attackReward)
                 {
@@ -49,12 +46,25 @@ public class DiceSide : MonoBehaviour, IDropHandler
                 }
                 else if(reward.currentRewardType == Reward.rewardType.attackSpecial)
                 {
-                    damage += 10;
+                    for(int i =0;i< transform.childCount;i++)
+                    {
+                        Destroy(transform.GetChild(0).gameObject);
+                    }
+                    damage = 10;
                 }
                 else if(reward.currentRewardType == Reward.rewardType.shieldSpecial)
                 {
-                    shield += 10;
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        Destroy(transform.GetChild(0).gameObject);
+                    }
+                    shield = 10;
                 }
+
+                eventData.pointerDrag.transform.SetParent(this.transform);
+                eventData.pointerDrag.transform.position = transform.position;
+                reward.moveBack = false;
+                reward.canInteract = false;
             }
         }
         

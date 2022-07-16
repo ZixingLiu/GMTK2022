@@ -34,7 +34,7 @@ public class TreasureCanvas : MonoBehaviour
         Destroy(leftButton);
         Destroy(leftReward);
 
-        for (int i = 0; i < rightReward.transform.childCount; i++)
+        for (int i = 0; i < rightReward.transform.GetChild(0).childCount; i++)
         {
             rightReward.transform.GetChild(0).GetChild(i).GetComponent<Reward>().canInteract = true ;
         }
