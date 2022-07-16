@@ -13,7 +13,13 @@ public class HoldOnLoad : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("GameAudio");
+        if (objs.Length > 1 || scene.name == "FailScene" || scene.name == "VictoryScene")
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
+
 
     }
     private void Update()
@@ -21,6 +27,11 @@ public class HoldOnLoad : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         GameObject[] objs = GameObject.FindGameObjectsWithTag("StartAudio");
         if (objs.Length > 1 || scene.name == "GameScene")
+        {
+            Destroy(this.gameObject);
+        }
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("GameAudio");
+        if (objs.Length > 1 || scene.name == "FailScene" || scene.name == "VictoryScene")
         {
             Destroy(this.gameObject);
         }
