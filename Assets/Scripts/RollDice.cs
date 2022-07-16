@@ -13,11 +13,13 @@ public class RollDice : MonoBehaviour
 
     public GameObject rollButton;
     public GameObject attackButton;
+    Combat combat;
 
 
     private void Awake()
     {
         diceSidesHolder = GameObject.Find("Dice holder");
+        combat = FindObjectOfType<Combat>();
     }
 
     // Start is called before the first frame update
@@ -51,11 +53,15 @@ public class RollDice : MonoBehaviour
 
             Destroy(diceDisplay);
             GameObject CurrentDiceDisplay = Instantiate(diceSides[randomDiceSide],transform.position,Quaternion.identity,transform);
+            
             CurrentDiceDisplay.GetComponent<Image>().SetNativeSize();
+            CurrentDiceDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 200);
 
             yield return new WaitForSeconds(0.05f);
             diceDisplay = CurrentDiceDisplay;
         }
+
+        combat.playerDamage = diceSides[randomDiceSide].GetComponent<DiceSide>().damage;
         finalSide = randomDiceSide + 1;
         Debug.Log(finalSide);
     }

@@ -8,12 +8,14 @@ public class DoTweenManager : MonoBehaviour
     public Vector3 targetPos = Vector3.zero;
 
     public float duration = 1;
+    public int shakeTime =4;
+    public float shakeMagnitude;
 
     public Ease moveEase = Ease.Linear;
 
     public enum DotweenType
     {
-        moveOneway,moveTwoway, moveBackAndForth
+        moveOneway,moveTwoway, moveBackAndForth,shake
     }
     public DotweenType dotweenType = DotweenType.moveOneway;
 
@@ -53,9 +55,29 @@ public class DoTweenManager : MonoBehaviour
             }
             StartCoroutine(moveBackAndForth());
         }
+        else if(dotweenType == DotweenType.shake)
+        {
+            if (targetPos == Vector3.zero)
+            {
+                targetPos = this.transform.position;
+            }
+            StartCoroutine(Shake(shakeTime));
+        }
     }
 
-
+    private IEnumerator Shake(int shakeTimes)
+    {
+        for(int i=0;i<shakeTimes;i++)
+        {
+            Debug.Log("shake");
+            Vector3 orginalPos = this.transform.position;
+            targetPos = orginalPos + new Vector3(Random.Range(-shakeMagnitude, shakeMagnitude), Random.Range(-shakeMagnitude, shakeMagnitude));
+            this.transform.DOMove(targetPos, duration).SetEase(moveEase);
+            yield return new WaitForSeconds(duration);
+            this.transform.DOMove(orginalPos, duration).SetEase(moveEase);
+            yield return new WaitForSeconds(duration);
+        }
+    }
    
 
     private IEnumerator moveWithBothWay()

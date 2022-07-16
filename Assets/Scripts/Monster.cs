@@ -1,23 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Monster : MonoBehaviour
 {
 
     public int damage;
-    public float maxHealth;
-    float currentHealth;
+
 
     public GameObject Player;
-    DoTweenManager doTween;
+    public DoTweenManager doTween;
 
     public GameObject rewardCanvas;
+    public GameObject combatCnavas;
+    GameObject canvas;
 
+    [Header("health")]
+    public float maxHealth = 100;
+    public float currentHealth;
+    public Image healthBar;
+    public TextMeshProUGUI healthText;
+    float lerpSpeed;
+
+    public Color fullHealthColor;
+    public Color noHealthColor;
     private void Awake()
     {
         Player = FindObjectOfType<PlayerControl>().gameObject;
-        doTween = GetComponent<DoTweenManager>();   
+        doTween = GetComponent<DoTweenManager>();
+        canvas = GameObject.Find("Canvas");
     }
 
     // Start is called before the first frame update
@@ -29,13 +42,55 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentHealth <= 0)
+        //debug
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            //end fight
-            rewardCanvas.SetActive(true);
-            //open reward
-
+            currentHealth += 1;
         }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            currentHealth -= 1;
+        }
+
+        // health
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Debug.Log("die");
+        }
+        healthText.text = currentHealth + "/" + maxHealth;
+
+        lerpSpeed = 3f * Time.deltaTime;
+
+        HealthBarFiller();
+        ColorChanger();
+
+        if (currentHealth <= 0)
+        {
+            //open reward
+            combatCnavas.SetActive(false);
+            rewardCanvas.SetActive(true);
+            rewardCanvas.transform.SetParent(canvas.transform);
+
+            Destroy(this.gameObject);
+        }
+    }
+
+    void HealthBarFiller()
+    {
+        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, lerpSpeed);
+    }
+
+    void ColorChanger()
+    {
+        Color healthColor = Color.Lerp(noHealthColor, fullHealthColor, (currentHealth / maxHealth));
+
+        healthBar.color = healthColor;
     }
 
     public void takeDamage(float damage)
@@ -45,7 +100,10 @@ public class Monster : MonoBehaviour
 
     public void attack()
     {
-        doTween.targetPos = Player.transform.position;
-        doTween.PlayAnimatetion();
+        //GameObject player = Player;
+        //doTween.targetPos = player.transform.position;
+        //doTween.PlayAnimatetion();
+
+        Player.GetComponent<PlayerControl>().currentHealth -= damage;
     }
 }

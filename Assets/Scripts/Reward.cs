@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Reward : MonoBehaviour,IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    public enum rewardType { normal, special}
+    public enum rewardType { attackReward,shieldReward, attackSpecial,shieldSpecial}
     public rewardType currentRewardType;
 
     public bool canInteract = true;
@@ -60,10 +60,11 @@ public class Reward : MonoBehaviour,IDragHandler, IBeginDragHandler, IEndDragHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = 1;
         if (canInteract)
         {
-            canvasGroup.blocksRaycasts = true;
-            canvasGroup.alpha = 1;
+            
 
             if (moveBack)
             {

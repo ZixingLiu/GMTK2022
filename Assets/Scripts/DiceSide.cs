@@ -8,6 +8,13 @@ public class DiceSide : MonoBehaviour, IDropHandler
 
     public int damage;
     public int shield;
+
+    Combat combat;
+
+    private void Awake()
+    {
+        combat = FindObjectOfType<Combat>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +36,15 @@ public class DiceSide : MonoBehaviour, IDropHandler
             eventData.pointerDrag.transform.position = transform.position;
             reward.moveBack = false;
             reward.canInteract = false;
+
+            if(reward.currentRewardType == Reward.rewardType.attackReward)
+            {
+                combat.playerDamage++;
+            }
+            else if(reward.currentRewardType == Reward.rewardType.shieldReward)
+            {
+                combat.playerShield++;
+            }
         }
     }
 }

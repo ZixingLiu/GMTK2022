@@ -22,10 +22,11 @@ public class PlayerControl : MonoBehaviour
     TrajectoryLine tl;
 
     public bool canDrag = true;
+    public bool inCombat = false;
 
     [Header("health")]
     public float maxHealth = 100;
-    float currentHealth;
+    public float currentHealth;
     public Image healthBar;
     public TextMeshProUGUI healthText;
     float lerpSpeed;
@@ -50,15 +51,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //debug
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            currentHealth += 10;
-        }
-        if(Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            currentHealth -= 10;
-        }
+        
 
         // health
 
@@ -79,7 +72,7 @@ public class PlayerControl : MonoBehaviour
         ColorChanger();
 
         //movement
-        if (rb.velocity.magnitude <= 2f)
+        if (rb.velocity.magnitude <= 2f && !inCombat)
         {
             canDrag = true;
             rb.velocity = Vector2.zero;

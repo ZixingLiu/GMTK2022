@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
+    public int playerDamage;
+    public int playerShield;
 
     public GameObject combatCnavas;
 
@@ -32,10 +34,27 @@ public class Combat : MonoBehaviour
         
     }
 
-    public void AttackAnim(int damage)
+    public void ClickAttacck()
+    {
+        StartCoroutine(AttackAnim());
+    }
+
+    public IEnumerator AttackAnim()
     {
         dotween.targetPos = targetMonster.transform.position;
         dotween.PlayAnimatetion();
+
+        Monster monster = targetMonster.GetComponent<Monster>();
+        monster.currentHealth -= playerDamage;
+        
+        monster.attack();
+
+
+        yield return new WaitForSeconds(1f);
+
+        rd.rollButton.SetActive(true);
+        rd.attackButton.SetActive(false);
+
     }
 
     public void Getshield(int shieldNum)
@@ -43,14 +62,17 @@ public class Combat : MonoBehaviour
 
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Monster")
         {
             targetMonster = collision.gameObject;
             //stop movement
-            //playerControl.rb.velocity = Vector3.zero;
+            playerControl.rb.velocity = playerControl.rb.velocity * 0.05f;
             playerControl.canDrag = false;
+            playerControl.inCombat = true;
 
             //enter combat
             combatCnavas.SetActive(true);
