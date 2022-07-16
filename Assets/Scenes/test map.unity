@@ -42217,7 +42217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b5d142fb77414f9e89412dca53cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadVictoryScene: 
+  LoadVictoryScene: VictoryScene
 --- !u!114 &8545778494727265731
 MonoBehaviour:
   m_ObjectHideFlags: 0
