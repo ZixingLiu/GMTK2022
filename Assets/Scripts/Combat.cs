@@ -34,7 +34,7 @@ public class Combat : MonoBehaviour
         if (collision.tag == "Monster")
         {
             //stop movement
-            playerControl.rb.velocity = Vector3.zero;
+            //playerControl.rb.velocity = Vector3.zero;
             playerControl.canDrag = false;
 
             //enter combat
