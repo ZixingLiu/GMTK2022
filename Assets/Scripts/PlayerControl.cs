@@ -74,6 +74,7 @@ public class PlayerControl : MonoBehaviour
         {
             currentHealth = 0;
             Debug.Log("die");
+            //Fail Scene
         }
         healthText.text = currentHealth + "/" + maxHealth;
 
