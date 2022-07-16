@@ -13,11 +13,11 @@ public class HoldOnLoad : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("GameAudio");
-        if (objs.Length > 1 || scene.name == "FailScene" || scene.name == "VictoryScene")
-        {
-            Destroy(this.gameObject);
-        }
+        //GameObject[] objects = GameObject.FindGameObjectsWithTag("GameAudio");
+        //if (objs.Length > 1 || scene.name == "FailScene" || scene.name == "VictoryScene")
+        //{
+        //    Destroy(this.gameObject);
+        //}
         DontDestroyOnLoad(this.gameObject);
 
 
@@ -30,10 +30,10 @@ public class HoldOnLoad : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("GameAudio");
-        if (objs.Length > 1 || scene.name == "FailScene" || scene.name == "VictoryScene")
-        {
-            Destroy(this.gameObject);
-        }
+        //GameObject[] objects = GameObject.FindGameObjectsWithTag("GameAudio");
+        //if (objs.Length > 1 || scene.name == "FailScene" || scene.name == "VictoryScene")
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 }
