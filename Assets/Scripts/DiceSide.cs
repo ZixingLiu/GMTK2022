@@ -47,6 +47,14 @@ public class DiceSide : MonoBehaviour, IDropHandler
                 {
                     shield+=2;
                 }
+                else if(reward.currentRewardType == Reward.rewardType.attackSpecial)
+                {
+                    damage += 10;
+                }
+                else if(reward.currentRewardType == Reward.rewardType.shieldSpecial)
+                {
+                    shield += 10;
+                }
             }
         }
         
