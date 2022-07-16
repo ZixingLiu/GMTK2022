@@ -57,6 +57,9 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //lock rotation
+        transform.rotation = Quaternion.identity;
+
         //shield manage
         if (shieldHolder.transform.childCount < shieldCount)
             Instantiate(shieldIcon, shieldHolder.transform);
