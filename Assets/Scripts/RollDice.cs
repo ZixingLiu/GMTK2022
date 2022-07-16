@@ -14,6 +14,7 @@ public class RollDice : MonoBehaviour
     public GameObject rollButton;
     public GameObject attackButton;
 
+
     private void Awake()
     {
         diceSidesHolder = GameObject.Find("Dice holder");

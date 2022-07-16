@@ -10,11 +10,14 @@ public class Combat : MonoBehaviour
     public RollDice rd;
 
     PlayerControl playerControl;
+    DoTweenManager dotween;
+    GameObject targetMonster;
 
     private void Awake()
     {
         //rd = FindObjectOfType<RollDice>();
         playerControl = GetComponent<PlayerControl>();
+        dotween = GetComponent<DoTweenManager>();
     }
 
     // Start is called before the first frame update
@@ -29,10 +32,22 @@ public class Combat : MonoBehaviour
         
     }
 
+    public void AttackAnim(int damage)
+    {
+        dotween.targetPos = targetMonster.transform.position;
+        dotween.PlayAnimatetion();
+    }
+
+    public void Getshield(int shieldNum)
+    {
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Monster")
         {
+            targetMonster = collision.gameObject;
             //stop movement
             //playerControl.rb.velocity = Vector3.zero;
             playerControl.canDrag = false;
