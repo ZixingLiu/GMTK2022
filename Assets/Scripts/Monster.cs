@@ -90,6 +90,7 @@ public class Monster : MonoBehaviour
             combatCnavas.SetActive(false);
             rewardCanvas.SetActive(true);
             rewardCanvas.transform.SetParent(canvas.transform);
+            rewardCanvas.transform.localScale = Vector3.one;
             rewardCanvas.transform.SetSiblingIndex(1);
             rewardCanvas.transform.position = rewardInScene.transform.position;
 

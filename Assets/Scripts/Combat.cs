@@ -10,19 +10,24 @@ public class Combat : MonoBehaviour
 
     public GameObject combatCnavas;
 
+
     public RollDice rd;
 
     PlayerControl playerControl;
     DoTweenManager dotween;
     GameObject targetMonster;
+    public GameObject targetTreasure;
 
-    
+    GameObject canvas;
+    GameObject rewardInScene;
 
     private void Awake()
     {
         //rd = FindObjectOfType<RollDice>();
         playerControl = GetComponent<PlayerControl>();
         dotween = GetComponent<DoTweenManager>();
+        canvas = GameObject.Find("Canvas");
+        rewardInScene = GameObject.Find("Reward in Scene");
     }
 
     // Start is called before the first frame update
@@ -92,6 +97,27 @@ public class Combat : MonoBehaviour
             rd.attackButton.SetActive(false);
             //Debug.Log("enter combat");
 
+        }
+
+        if(collision.tag == "Treasure")
+        {
+            targetTreasure = collision.gameObject;
+            //stop movement
+            playerControl.rb.velocity = playerControl.rb.velocity * 0.05f;
+            playerControl.canDrag = false;
+            playerControl.inCombat = true;
+
+            //playerControl.rb.velocity = playerControl.rb.velocity * 0.05f;
+            playerControl.canDrag = false;
+            playerControl.inCombat = true;
+
+            //move treasure canvas to target pos
+            Treasure treasure = collision.gameObject.GetComponent<Treasure>();
+            treasure.treasureCanvas.SetActive(true);
+            treasure.treasureCanvas.transform.SetParent(canvas.transform);
+            treasure.treasureCanvas.transform.position = rewardInScene.transform.position;
+            treasure.treasureCanvas.transform.localScale = Vector3.one;
+            treasure.treasureCanvas.transform.SetSiblingIndex(1);
         }
     }
 }

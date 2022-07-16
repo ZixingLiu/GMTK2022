@@ -28,23 +28,27 @@ public class DiceSide : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<Reward>() != null)
+        if(transform.childCount <=4)
         {
-            Reward reward = eventData.pointerDrag.GetComponent<Reward>();
-
-            eventData.pointerDrag.transform.SetParent(this.transform);
-            eventData.pointerDrag.transform.position = transform.position;
-            reward.moveBack = false;
-            reward.canInteract = false;
-
-            if(reward.currentRewardType == Reward.rewardType.attackReward)
+            if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<Reward>() != null)
             {
-                damage++;
-            }
-            else if(reward.currentRewardType == Reward.rewardType.shieldReward)
-            {
-                shield++;
+                Reward reward = eventData.pointerDrag.GetComponent<Reward>();
+
+                eventData.pointerDrag.transform.SetParent(this.transform);
+                eventData.pointerDrag.transform.position = transform.position;
+                reward.moveBack = false;
+                reward.canInteract = false;
+
+                if (reward.currentRewardType == Reward.rewardType.attackReward)
+                {
+                    damage++;
+                }
+                else if (reward.currentRewardType == Reward.rewardType.shieldReward)
+                {
+                    shield+=2;
+                }
             }
         }
+        
     }
 }
