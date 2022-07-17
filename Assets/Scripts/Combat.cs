@@ -75,9 +75,15 @@ public class Combat : MonoBehaviour
         {
             monster.attack();
         }
+        else if(playerShield < monster.damage)
+        {
+            playerControl.currentHealth -= monster.damage - playerShield;
+            playerShield = 0;
+            
+        }
         else
         {
-            playerShield--;
+            playerShield -= monster.damage;
         }
 
 
