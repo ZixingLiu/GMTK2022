@@ -224,6 +224,10 @@ public class PlayerControl : MonoBehaviour
         {
             tutorialText5.SetActive(true);
         }
+        if(collision.tag == "Slow")
+        {
+            rb.velocity = rb.velocity * 0.3f;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
