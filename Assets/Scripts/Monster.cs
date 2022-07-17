@@ -94,12 +94,12 @@ public class Monster : MonoBehaviour
             rewardCanvas.transform.SetSiblingIndex(1);
             rewardCanvas.transform.position = rewardInScene.transform.position;
 
-            
+            Destroy(this.gameObject);
 
             startFading = true;
             if (sprite.color.a > 0)
             {
-                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - fadeTime/60);
+                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - fadeTime/20);
             }
 
         }
