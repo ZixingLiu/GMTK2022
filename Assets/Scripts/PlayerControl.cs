@@ -51,6 +51,8 @@ public class PlayerControl : MonoBehaviour
     public string LoadFailScene;
     GameObject boss;
 
+    public GameObject tutorialText1; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -187,5 +189,20 @@ public class PlayerControl : MonoBehaviour
         float speed = lastVelocity.magnitude;
         Vector3 direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
         rb.velocity = direction * Mathf.Max(speed, 0f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "TT1")
+        {
+            tutorialText1.SetActive(true); 
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "TT1")
+        {
+            tutorialText1.SetActive(false);
+        }
     }
 }

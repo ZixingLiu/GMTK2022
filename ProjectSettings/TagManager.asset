@@ -7,6 +7,7 @@ TagManager:
   - Monster
   - Treasure
   - StartAudio
+  - TT1
   layers:
   - Default
   - TransparentFX
