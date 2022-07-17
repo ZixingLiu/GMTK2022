@@ -48,9 +48,9 @@ public class DiceSide : MonoBehaviour, IDropHandler
                     else if (reward.currentRewardType == Reward.rewardType.attackSpecial)
                     {
 
-                        while (transform.childCount > 0)
+                        foreach (Transform child in transform)
                         {
-                            Destroy(transform.GetChild(0).gameObject);
+                            GameObject.Destroy(child.gameObject);
                         }
 
                         damage = 10;
@@ -59,9 +59,9 @@ public class DiceSide : MonoBehaviour, IDropHandler
                     else if (reward.currentRewardType == Reward.rewardType.shieldSpecial)
                     {
 
-                        while (transform.childCount > 0)
+                        foreach (Transform child in transform)
                         {
-                            Destroy(transform.GetChild(0).gameObject);
+                            GameObject.Destroy(child.gameObject);
                         }
 
                         shield = 10;
