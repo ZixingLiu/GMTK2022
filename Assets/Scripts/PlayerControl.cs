@@ -137,9 +137,16 @@ public class PlayerControl : MonoBehaviour
         healthBar.color = healthColor;
     }
 
+    private void OnMouseEnter()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
     private void OnMouseDown()
     {
-        if(canDrag)
+        //
+
+        if (canDrag)
         {
             GetComponent<AudioSource>().clip = stretchSound;
             GetComponent<AudioSource>().Play();
