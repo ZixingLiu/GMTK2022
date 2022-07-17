@@ -51864,6 +51864,7 @@ GameObject:
   - component: {fileID: 5773815280401943262}
   - component: {fileID: 5773815280401943263}
   - component: {fileID: 4187298225804631882}
+  - component: {fileID: 5773815280401943264}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -57948,6 +57949,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5773815280401943264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835689626671337059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2b5d142fb77414f9e89412dca53cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadVictoryScene: VictoryScene
 --- !u!222 &5818275059146995337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -61585,7 +61599,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7585764370777886348}
   - component: {fileID: 7609450523630611857}
-  - component: {fileID: 8517191721369600068}
   m_Layer: 0
   m_Name: BOSS
   m_TagString: Untagged
@@ -61593,19 +61606,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8517191721369600068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8517191721369600067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed2b5d142fb77414f9e89412dca53cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadVictoryScene: VictoryScene
 --- !u!114 &8545778494727265731
 MonoBehaviour:
   m_ObjectHideFlags: 0

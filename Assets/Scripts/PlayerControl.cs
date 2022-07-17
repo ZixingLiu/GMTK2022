@@ -71,10 +71,13 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //calculate distance
-        int distance = Mathf.Abs((int)(boss.transform.position - transform.position).magnitude);
-        distanceText.text = "Boss Distance: " + distance.ToString() + "M";
+        if(boss != null)
+        {
+            //calculate distance
+            int distance = Mathf.Abs((int)(boss.transform.position - transform.position).magnitude);
+            distanceText.text = "Boss Distance: " + distance.ToString() + "M";
+        }
+        
 
         //lock rotation
         transform.rotation = Quaternion.identity;
