@@ -52,6 +52,10 @@ public class PlayerControl : MonoBehaviour
     GameObject boss;
 
     public GameObject tutorialText1; 
+    public GameObject tutorialText2;
+    public GameObject tutorialText3;
+    public GameObject tutorialText4;
+    public GameObject tutorialText5;
 
     // Start is called before the first frame update
     void Start()
@@ -197,12 +201,44 @@ public class PlayerControl : MonoBehaviour
         {
             tutorialText1.SetActive(true); 
         }
+        if (collision.gameObject.tag == "TT2")
+        {
+            tutorialText2.SetActive(true);
+        }
+        if (collision.gameObject.tag == "TT3")
+        {
+            tutorialText3.SetActive(true);
+        }
+        if (collision.gameObject.tag == "TT4")
+        {
+            tutorialText4.SetActive(true);
+        }
+        if (collision.gameObject.tag == "TT5")
+        {
+            tutorialText5.SetActive(true);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "TT1")
         {
             tutorialText1.SetActive(false);
+        }
+        if (collision.gameObject.tag == "TT2")
+        {
+            tutorialText2.SetActive(false);
+        }
+        if (collision.gameObject.tag == "TT3")
+        {
+            tutorialText3.SetActive(false);
+        }
+        if (collision.gameObject.tag == "TT4")
+        {
+            tutorialText4.SetActive(false);
+        }
+        if (collision.gameObject.tag == "TT5")
+        {
+            tutorialText5.SetActive(false);
         }
     }
 }
