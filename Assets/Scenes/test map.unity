@@ -13039,6 +13039,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6062935880812154630, guid: eb7cc8e3ac94e554183b2d32732899ef, type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb7cc8e3ac94e554183b2d32732899ef, type: 3}
 --- !u!224 &690123130 stripped
@@ -17118,6 +17122,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6062935880812154630, guid: eb7cc8e3ac94e554183b2d32732899ef, type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb7cc8e3ac94e554183b2d32732899ef, type: 3}
 --- !u!224 &920448569 stripped
@@ -19799,7 +19807,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015696801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.64, y: 23.804, z: 0}
+  m_LocalPosition: {x: 8.06, y: 15.104001, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25555,6 +25563,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819976609923821888}
     m_Modifications:
+    - target: {fileID: 4089071676813030872, guid: 0cb3c942fe83f7441868e40258cc12c6, type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4089071676813030878, guid: 0cb3c942fe83f7441868e40258cc12c6, type: 3}
       propertyPath: m_Name
       value: attack reward
@@ -30417,6 +30429,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819976609363611237}
     m_Modifications:
+    - target: {fileID: 4089071676813030872, guid: 0cb3c942fe83f7441868e40258cc12c6, type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4089071676813030878, guid: 0cb3c942fe83f7441868e40258cc12c6, type: 3}
       propertyPath: m_Name
       value: attack reward
@@ -42363,7 +42379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073186929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.4, y: 23.9, z: -8}
+  m_LocalPosition: {x: 4.3, y: 15.2, z: -8}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
