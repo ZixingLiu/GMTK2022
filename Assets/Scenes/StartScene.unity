@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DemiL, ConnorZ,QihuanJ, LinkaG, WhitneyZ, MInaL
+  m_text: DemiL, ConnorZ, QihuanJ, LinkaG, WhitneyZ, MInaL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7b90286e0502ea40bc81a2d8dd8b9d8, type: 2}
   m_sharedMaterial: {fileID: -3863805499462389431, guid: a7b90286e0502ea40bc81a2d8dd8b9d8, type: 2}
