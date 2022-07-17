@@ -18,9 +18,11 @@ public class DialogManager : MonoBehaviour
     public GameObject triggerButton;
 
     public string MainScene;
+    public Dialog dialog;
     void Start()
     {
         sentences = new Queue<string>();
+        FindObjectOfType<DialogManager>().StartDialogue(dialog);
     }
 
     public void StartDialogue(Dialog dialog)

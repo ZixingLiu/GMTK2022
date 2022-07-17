@@ -52,14 +52,14 @@ public class Monster : MonoBehaviour
     void Update()
     {
         //debug
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            currentHealth += 1;
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            currentHealth -= 1;
-        }
+        //if (Input.GetKeyDown(KeyCode.UpArrow))
+        //{
+        //    currentHealth += 1;
+        //}
+        //if (Input.GetKeyDown(KeyCode.DownArrow))
+        //{
+        //    currentHealth -= 1;
+        //}
 
         // health
 

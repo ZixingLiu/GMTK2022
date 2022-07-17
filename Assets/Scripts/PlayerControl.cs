@@ -77,6 +77,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            currentHealth -= 30;
+        }
         if(boss != null)
         {
             //calculate distance

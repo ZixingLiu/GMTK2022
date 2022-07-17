@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
+    Monster monster;
     public string LoadVictoryScene; 
     private void OnDestroy()
     {
-        SceneManager.LoadScene(LoadVictoryScene);
+    }
+    private void Awake()
+    {
+        monster = GetComponent<Monster>();
     }
 
-    
     void Start()
     {
         
@@ -21,6 +24,10 @@ public class Boss : MonoBehaviour
     
     void Update()
     {
-        
+        if(monster.currentHealth <=0)
+        {
+            SceneManager.LoadScene(LoadVictoryScene);
+
+        }
     }
 }

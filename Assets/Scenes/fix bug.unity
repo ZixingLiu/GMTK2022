@@ -16555,6 +16555,11 @@ MonoBehaviour:
   stretchSound: {fileID: 8300000, guid: bf770d384b578614c80d7b5f49a5faa0, type: 3}
   wallHitSound: {fileID: 8300000, guid: 7ccc96cb5c469a941b76ad88c792b923, type: 3}
   LoadFailScene: FailScene
+  tutorialText1: {fileID: 0}
+  tutorialText2: {fileID: 0}
+  tutorialText3: {fileID: 0}
+  tutorialText4: {fileID: 0}
+  tutorialText5: {fileID: 0}
 --- !u!212 &1015696811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43680,7 +43685,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7585764370777886348}
   - component: {fileID: 7609450523630611857}
-  - component: {fileID: 8517191721369600068}
   m_Layer: 0
   m_Name: BOSS
   m_TagString: Untagged
@@ -43688,19 +43692,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8517191721369600068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8517191721369600067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed2b5d142fb77414f9e89412dca53cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadVictoryScene: 
 --- !u!114 &8545778494727265731
 MonoBehaviour:
   m_ObjectHideFlags: 0
